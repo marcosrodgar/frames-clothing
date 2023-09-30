@@ -24,7 +24,7 @@ const SignInForm = () => {
         }
         catch(error)
         {
-            
+            console.log(error);
         }
        
     }
@@ -63,11 +63,8 @@ const SignInForm = () => {
             <h2>Already have an account?</h2>
             <span>Sign in with your email and password</span>
             <form onSubmit={signIn}>
-
                 <FormInput label="Email" name="email" type="email" onChange={handleChange}  value={email} required/>
-
                 <FormInput label="Password" name="password" type="password" onChange={handleChange}  value={password} required/>
-
                 <div className='buttons-container'>
                     <Button type = "submit"> Sign In</Button>
                     <Button type ="button" buttonType='google' onClick={signInWithGoogle}> Google Sign In</Button>
