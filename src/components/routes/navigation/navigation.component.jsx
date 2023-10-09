@@ -5,17 +5,19 @@ import {NavigationContainer, LogoContainer, NavLinks, NavLink} from './navigatio
 import { signOutUser } from '../../../utils/firebase/firebase.utils';
 import CartIcon from '../../cart-icon/cart-icon.component';
 import CartDropdown from '../../cart-dropdown/cart-dropdown.component';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectCurrentUser } from '../../store/user/user.selector';
 import { selectIsCartOpen } from '../../store/cart/cart.selector';
+import { signOutStart } from '../../store/user/user.action';
 
 
 const Navigation = () => {
     const currentUser =  useSelector(selectCurrentUser);
     const isCartOpen = useSelector(selectIsCartOpen);
+    const dispatch = useDispatch();
 
     const signOutHandler = async () => {
-         await signOutUser();
+         dispatch(signOutStart());
     }
 
     return (
